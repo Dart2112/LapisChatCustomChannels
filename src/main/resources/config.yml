@@ -1,0 +1,22 @@
+# Messages
+Messages:
+  PasswordRequired: "Please enter the password for this channel in chat, don't worry it wont be send to players. Passwords are case sensitive!"
+  CorrectPassword: "That was the correct password, you are now in the channel"
+  IncorrectPassword: "That was the wrong password, to try again simply attempt to join the channel again"
+
+# The plugin will remove the global channel then install the channels below
+# You can make as many as you want as long as the values below are filled in
+Channels:
+  Global:
+    # This is the name used when sending players notifications like joining or leaving a channel
+    Name: "Global"
+    # This is the short name that can be used in commands like /ch g
+    ShortName: "g"
+    # This replaces {CHANNEL_PREFIX} in the format
+    Prefix: "[G]"
+    # This permission is required to join the channel
+    Permission: "LapisChat.Global"
+    # This is the password required to join, no password is required if it is an empty string
+    Password: ""
+    # The format for the channel, this replaces the format in LapisChat
+    Format: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"

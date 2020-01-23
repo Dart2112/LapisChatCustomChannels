@@ -1,5 +1,6 @@
 name: LapisChatCustomChannels
 version: ${project.version}
+api-version: "1.15"
 main: net.lapismc.lapischat.customchannels.LapisChatCustomChannels
 depend: [LapisChat]
 softdepend: [LapisChatFactions]

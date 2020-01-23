@@ -4,6 +4,10 @@ Messages:
   CorrectPassword: "That was the correct password, you are now in the channel"
   IncorrectPassword: "That was the wrong password, to try again simply attempt to join the channel again"
 
+#Channels you wish to have removed
+Disable:
+  - "Local"
+
 # The plugin will remove the global channel then install the channels below
 # You can make as many as you want as long as the values below are filled in
 Channels:

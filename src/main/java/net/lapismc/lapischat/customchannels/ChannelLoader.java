@@ -16,6 +16,9 @@ class ChannelLoader {
     void loadChannels() {
         Channel global = plugin.channelAPI.getChannel("Global");
         plugin.channelAPI.removeChannel(global);
+        for (String channel : plugin.getConfig().getStringList("Disable")) {
+            plugin.channelAPI.removeChannel(plugin.channelAPI.getChannel(channel));
+        }
         FileConfiguration config = plugin.getConfig();
         for (String key : config.getConfigurationSection("Channels").getKeys(false)) {
             String name = config.getString("Channels." + key + ".Name");

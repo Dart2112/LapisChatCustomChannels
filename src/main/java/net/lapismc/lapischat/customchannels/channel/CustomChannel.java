@@ -32,7 +32,7 @@ public class CustomChannel extends Channel implements Listener {
         if (password.equals("")) {
             super.addPlayer(p);
         } else {
-            sendMessage(p, "Messages.PasswordRequired");
+            sendMessageToPlayer(p, "Messages.PasswordRequired");
             waitingForPassword.add(p);
             p.removeChannel(this);
             p.setMainChannel(null);
@@ -45,13 +45,13 @@ public class CustomChannel extends Channel implements Listener {
             e.setCancelled(true);
             waitingForPassword.remove(getChatPlayer(e.getPlayer()));
             if (e.getMessage().equals(password)) {
-                sendMessage(getChatPlayer(e.getPlayer()), "Messages.CorrectPassword");
+                sendMessageToPlayer(getChatPlayer(e.getPlayer()), "Messages.CorrectPassword");
                 super.addPlayer(getChatPlayer(e.getPlayer()));
                 getChatPlayer(e.getPlayer()).setMainChannel(this);
                 getChatPlayer(e.getPlayer()).sendMessage(LapisChat.getInstance()
                         .config.getMessage("Channel.Set").replace("%CHANNEL%", getName()));
             } else {
-                sendMessage(getChatPlayer(e.getPlayer()), "Messages.IncorrectPassword");
+                sendMessageToPlayer(getChatPlayer(e.getPlayer()), "Messages.IncorrectPassword");
             }
         }
     }
@@ -60,9 +60,8 @@ public class CustomChannel extends Channel implements Listener {
         return LapisChat.getInstance().getPlayer(p.getUniqueId());
     }
 
-    private void sendMessage(ChatPlayer sender, String key) {
+    private void sendMessageToPlayer(ChatPlayer sender, String key) {
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', LapisChatCustomChannels.getInstance().getConfig().getString(key)));
-
     }
 
     @Override
